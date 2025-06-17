@@ -1,12 +1,25 @@
 export default function Home() {
 
   const openDeepLink = () => {
-    const deepLink = `toolchecknative://project`
-    window.location.href = deepLink
-    // Show a message in case the app doesn't open
-    setTimeout(() => {
-      alert('If the app didn\'t open, make sure it\'s installed on your device.')
+    const deepLink = "toolchecknative://project"
+
+    const timeout = setTimeout(() => {
+      alert(
+        "App not found. Please make sure the ToolCheck mobile app is installed.",
+      )
     }, 2000)
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        clearTimeout(timeout)
+        document.removeEventListener("visibilitychange", handleVisibilityChange)
+      }
+    }
+
+    document.addEventListener("visibilitychange", handleVisibilityChange)
+
+    // Try to open the deep link
+    window.location.href = deepLink
   }
 
 
