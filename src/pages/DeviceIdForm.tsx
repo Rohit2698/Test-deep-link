@@ -1,9 +1,15 @@
-import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 const DeviceIdForm = () => {
-    const params = useParams();
+    const [deviceId, setDeviceId] = useState<string>("");
 
-    const deviceId = params.deviceId
+    useEffect(() => {
+        const searchParams = new URLSearchParams(window.location.search);
+        const id = searchParams.get("deviceId");
+        setDeviceId(id ||"");
+        
+    }, []);
+    
   return (
     <div className="container">
       <h1>Device ID Form</h1>

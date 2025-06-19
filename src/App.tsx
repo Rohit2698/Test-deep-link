@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/tool/:toolId/inspection/:inspectionId/inspectionform" element={<InspectionForm />} />
-        <Route path="/device/:deviceId" element={<DeviceIdForm />} />
+        <Route path="/device" element={<DeviceIdForm />} />
       </Routes>
     </>
   )
