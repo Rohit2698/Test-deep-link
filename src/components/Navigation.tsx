@@ -23,6 +23,12 @@ export default function Navigation() {
           >
             Inspection Form
           </Link>
+          <Link 
+            to="/device/12345" 
+            className={`nav-link ${location.pathname.includes('/device') ? 'active' : ''}`}
+          >
+            Device 
+          </Link>
         </div>
       </div>
     </nav>

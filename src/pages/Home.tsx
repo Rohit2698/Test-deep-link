@@ -1,7 +1,7 @@
 export default function Home() {
 
   const openDeepLink = () => {
-    const deepLink = "toolchecknative://project"
+    const deepLink = `toolchecknative://project?redirectURL=${window.location.origin}/device`
 
     const timeout = setTimeout(() => {
       alert(
